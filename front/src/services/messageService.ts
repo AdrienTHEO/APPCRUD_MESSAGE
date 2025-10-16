@@ -1,22 +1,18 @@
+
 import api from '../api/axios.config';
 import type { Message, CreateMessageDto, UpdateMessageDto } from '../types/message.types';
 
 export const messageService = {
   // GET - Récupérer tous les messages
   getAll: async (): Promise<Message[]> => {
-    const response = await api.get('/');
-    const contents: string[] = response.data; 
-    return contents.map((content,index) => ({
-       id: index ,  // ID temporaire
-      content: content,
-      created_at: new Date().toISOString()
-    }));
+    const response = await api.get<Message[]>('/');
+    return response.data;
   },
 
   // POST - Créer un message
   create: async (data: CreateMessageDto): Promise<string> => {
     const formData = new URLSearchParams();
-    formData.append('content', data.content); 
+    formData.append('content', data.content);
     const response = await api.post('/', formData);
     return response.data;
   },
@@ -25,7 +21,7 @@ export const messageService = {
   update: async (id: number, data: UpdateMessageDto): Promise<string> => {
     const formData = new URLSearchParams();
     formData.append('content', data.content);
-   
+    
     const response = await api.post(`/update/${id}`, formData);
     return response.data;
   },

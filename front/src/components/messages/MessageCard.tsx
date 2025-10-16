@@ -6,7 +6,7 @@ import type { Message, UpdateMessageDto } from '../../types/message.types';
 interface MessageCardProps {
   message: Message;
   onDelete: (id: number) => Promise<boolean>;
-  onUpdate: (id: number, content:UpdateMessageDto) => Promise<boolean>;
+  onUpdate: (id: number, data: UpdateMessageDto) => Promise<boolean>;
 }
 
 export default function MessageCard({ message, onDelete, onUpdate }: MessageCardProps) {
@@ -51,6 +51,8 @@ export default function MessageCard({ message, onDelete, onUpdate }: MessageCard
     <>
       <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow duration-200">
         <div className="flex justify-between items-start mb-4">
+          <span className="text-sm text-gray-500">
+          </span>
           <span className="bg-blue-100 text-blue-800 text-xs font-semibold px-2 py-1 rounded">
             #{message.id}
           </span>
@@ -85,14 +87,14 @@ export default function MessageCard({ message, onDelete, onUpdate }: MessageCard
                 onClick={() => setIsEditing(true)} 
                 disabled={loading}
               >
-                 Modifier
+                Modifier
               </Button>
               <Button 
                 variant="danger" 
                 onClick={() => setShowDeleteModal(true)} 
                 disabled={loading}
               >
-                 Supprimer
+                Supprimer
               </Button>
             </>
           )}

@@ -7,7 +7,7 @@ interface MessageListProps {
   loading: boolean;
   error: string;
   onDelete: (id: number) => Promise<boolean>;
-  onUpdate: (id: number, data: UpdateMessageDto) => Promise<boolean>
+  onUpdate: (id: number, data: UpdateMessageDto) => Promise<boolean>;
 }
 
 export default function MessageList({
@@ -23,8 +23,8 @@ export default function MessageList({
 
   if (error) {
     return (
-      <div className="bg-red-50 border-red-500 p-6 rounded-lg">
-        <h3 className="text-red-800 font-bold mb-2">Erreur veuillez reessayer plus tard </h3>
+      <div className="bg-red-50 border-l-4 border-red-500 p-6 rounded-lg">
+        <h3 className="text-red-800 font-bold mb-2">Erreur</h3>
         <p className="text-red-700">{error}</p>
       </div>
     );

@@ -33,7 +33,6 @@ export default function MessageForm({ onSubmit }: MessageFormProps) {
     }
   };
 
-
   return (
     <form onSubmit={handleSubmit} className="bg-white rounded-xl shadow-lg p-6">
       <h2 className="text-2xl font-bold mb-6 text-gray-800">
@@ -41,7 +40,7 @@ export default function MessageForm({ onSubmit }: MessageFormProps) {
       </h2>
 
       {error && (
-        <div className="bg-red-50  border-red-500 p-4 mb-4">
+        <div className="bg-red-50 border-l-4 border-red-500 p-4 mb-4">
           <p className="text-red-700">{error}</p>
         </div>
       )}

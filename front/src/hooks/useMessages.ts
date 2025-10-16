@@ -2,7 +2,6 @@ import { useState, useEffect, useCallback } from 'react';
 import { messageService } from '../services/messageService';
 import type { Message, CreateMessageDto, UpdateMessageDto, LoadingState } from '../types/message.types';
 
-
 export function useMessages() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [status, setStatus] = useState<LoadingState>('idle');
