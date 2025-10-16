@@ -6,8 +6,8 @@ export const messageService = {
   getAll: async (): Promise<Message[]> => {
     const response = await api.get('/');
     const contents: string[] = response.data; 
-    return contents.map((content, index) => ({
-      id: index + 1, // ID temporaire
+    return contents.map((content) => ({
+     /*  id: index + 1,  */// ID temporaire
       content: content,
       created_at: new Date().toISOString()
     }));
